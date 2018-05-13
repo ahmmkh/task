@@ -1,0 +1,29 @@
+{% extends 'layout.html' %} {% block content %}
+<h2 class="display-5">Tasks</h2> <br>
+
+<div class="card-columns">
+
+    {% for Tasks in objects %}
+         {% if Tasks.done %}
+            <div class="card text-white bg-success mr-3" style="max-width: 18rem;">
+        {% else %}
+            <div class="card text-white bg-danger mr-3" style="max-width: 18rem;">
+        {% endif %}
+        <div class="card-header">{{Tasks.title}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{Tasks.title}}</h5>
+            <p class="card-text">{{Tasks.desc}}</p>
+            <a href="/edit-{{Tasks.id}}/" class="btn btn-secondary">Edit</a>
+            <a href="/delete-{{Tasks.id}}/" class="btn btn-primary">delete</a>
+
+           
+            <time class="timeago" datetime=" {{Tasks.date_created}}"></time>
+            </div>
+        </div>
+    
+    {% endfor %}
+</div>
+
+    
+{% endblock content %}
+

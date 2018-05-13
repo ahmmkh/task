@@ -1,0 +1,24 @@
+{% extends 'layout.html' %} {% block content %}
+<h2 class="display-5">Tasks</h2> <br>
+
+<div class="card-columns">
+
+    {% for Tasks in objects %}
+
+            <div class="card text-white bg-danger mr-3" style="max-width: 18rem;">
+        <div class="card-header">{{Tasks.title}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{Tasks.title}}</h5>
+            <p class="card-text">{{Tasks.desc}}</p>
+            <a href="/edit-{{Tasks.id}}/" class="btn btn-secondary">Edit</a>
+           
+            <time class="timeago" datetime=" {{Tasks.date_created}}"></time>
+            </div>
+        </div>
+    
+    {% endfor %}
+</div>
+
+    
+{% endblock content %}
+
